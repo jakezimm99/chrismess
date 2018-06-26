@@ -10,8 +10,8 @@ const form = document.querySelector('form')
 const change = function(ev) {
     ev.preventDefault()
     const f = ev.target
-    const flicksDiv = document.querySelector('#flicks')
-    flicksDiv.innerHTML += `<p>${f.flickName.value}</p>`
+    const list = document.querySelector('#flicks')
+    list.innerHTML += `<li>${f.flickName.value}</li>`
     f.flickName.value = ''
 }
 
