@@ -23,6 +23,7 @@
 
 * Use more than one function
 
+
 ## Day 1 Homework
 
 * Make the button change the text of the heading (the `<h1>`).

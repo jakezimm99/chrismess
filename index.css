@@ -7,9 +7,11 @@ body {
 .Flicky {
     font-family: 'Lato', Helvetica, Arial;
     color: blue;
+    border-bottom: 3px grey dashed
 }
 
 .yearFilmed {
     font-family: 'Lato', Arial, Helvetica, sans-serif;
-    color: maroon;
+    color: red;
+    border-bottom: 3px grey dashed
 }
