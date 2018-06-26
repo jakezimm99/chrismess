@@ -10,10 +10,13 @@ const form = document.querySelector('form')
 const addtoList = function(ev) {
     ev.preventDefault()
     const f = ev.target
-    const word = f.flickName.value
+    const flick = f.flickName.value
+    const year = f.year.value
     const list = document.querySelector('#flicks')
-    const listItem = createListItem(word)
+    const listItem = createListItem(flick)
+    const listYear = createListItem(year)
     addListItem(list, listItem)
+    addListItem(list, listYear)
     f.reset()
 }
 function createListItem(wording) {
