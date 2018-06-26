@@ -24,8 +24,8 @@ function createListItem(firstSpan, secondSpan) {
 }
 
 function createSpanItem(oneFlick, theYear) {
-        let flickSpan = "<span>" + oneFlick + "</span>"
-        let yearSpan = "<span>" + theYear + "</span>"
+        let flickSpan = "<span class = \"Flicky\">" + oneFlick + "</span>"
+        let yearSpan = "<span class = \"yearFilmed\">" + theYear + "</span>"
         return createListItem(flickSpan, yearSpan)
         
 }

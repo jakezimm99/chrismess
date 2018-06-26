@@ -4,3 +4,12 @@
 body {
     font-family: 'Lato',Helvetica, Arial, sans-serif;
 }
+.Flicky {
+    font-family: 'Lato', Helvetica, Arial;
+    color: blue;
+}
+
+.yearFilmed {
+    font-family: 'Lato', Arial, Helvetica, sans-serif;
+    color: maroon;
+}
