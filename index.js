@@ -5,17 +5,13 @@ const changeText = function() {
 }
 button.addEventListener('click', changeText)
 
-const submit = document.querySelector('#submit')
+const form = document.querySelector('form')
 
-function changer() {
-    const form = document.querySelector('form')
-    const text = document.querySelector('#input').value
-    if(text == '') {
-            alert("enter value to change header!")
-            return false;
-    }
-    const origHeading = document.querySelector('#exciting')
-    origHeading.textContent = text
+const change = function(ev) {
+    ev.preventDefault()
+    const f = ev.target
+    const flicksDiv = document.querySelector('#flicks')
+    flicksDiv.innerHTML += '<p>' + f.flickName.value + '</p>'
 }
 
-submit.addEventListener('click', changer)
+form.addEventListener('submit', change)
