@@ -1,5 +1,28 @@
 # Chrismess
 
+## Day 2 Homework
+
+* Add a second field to the form
+* Display the value of that field in the list
+* Give function changeHeading a more accurate name
+
+
+## Bonus Credit
+
+* Display the second field in a separate HTML element than the flick name
+* See if you can then style it differently. For Example:
+
+```
+<li>
+    <span class = "flickName"> </span>
+    <span class = "year"> </span>
+</li> 
+```
+
+### Super Mega Bonus Credit
+
+* Use more than one function
+
 ## Day 1 Homework
 
 * Make the button change the text of the heading (the `<h1>`).

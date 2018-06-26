@@ -7,15 +7,24 @@ button.addEventListener('click', changeText)
 
 const form = document.querySelector('form')
 
-const change = function(ev) {
+const addtoList = function(ev) {
     ev.preventDefault()
     const f = ev.target
+    const word = f.flickName.value
     const list = document.querySelector('#flicks')
-    let item = document.createElement('li')
-    item.textContent = f.flickName.value
-    list.appendChild(item)
+    const listItem = createListItem(word)
+    addListItem(list, listItem)
     f.reset()
+}
+function createListItem(wording) {
+    let item = document.createElement('li')
+    item.textContent = wording
+    return item
+}
+
+function addListItem(list, item) {
+    list.appendChild(item)
 }
 
 
-form.addEventListener('submit', change)
+form.addEventListener('submit', addtoList)
