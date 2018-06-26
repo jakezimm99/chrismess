@@ -13,16 +13,21 @@ const addtoList = function(ev) {
     const flick = f.flickName.value
     const year = f.year.value
     const list = document.querySelector('#flicks')
-    const listItem = createListItem(flick)
-    const listYear = createListItem(year)
-    addListItem(list, listItem)
-    addListItem(list, listYear)
+    const item = createSpanItem(flick, year)
+    addListItem(list, item)
     f.reset()
 }
-function createListItem(wording) {
+function createListItem(firstSpan, secondSpan) {
     let item = document.createElement('li')
-    item.textContent = wording
+    item.innerHTML = firstSpan + ' ' + secondSpan
     return item
+}
+
+function createSpanItem(oneFlick, theYear) {
+        let flickSpan = "<span>" + oneFlick + "</span>"
+        let yearSpan = "<span>" + theYear + "</span>"
+        return createListItem(flickSpan, yearSpan)
+        
 }
 
 function addListItem(list, item) {
