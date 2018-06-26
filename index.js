@@ -11,8 +11,10 @@ const change = function(ev) {
     ev.preventDefault()
     const f = ev.target
     const list = document.querySelector('#flicks')
-    list.innerHTML += `<li>${f.flickName.value}</li>`
-    f.flickName.value = ''
+    let item = document.createElement('li')
+    item.textContent = f.flickName.value
+    list.appendChild(item)
+    f.reset()
 }
 
 
