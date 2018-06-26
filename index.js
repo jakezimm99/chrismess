@@ -12,6 +12,8 @@ const change = function(ev) {
     const f = ev.target
     const flicksDiv = document.querySelector('#flicks')
     flicksDiv.innerHTML += `<p>${f.flickName.value}</p>`
+    f.flickName.value = ''
 }
+
 
 form.addEventListener('submit', change)
