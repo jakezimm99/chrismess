@@ -4,18 +4,22 @@
 body {
     font-family: 'Lato',Helvetica, Arial, sans-serif;
 }
-.Flicky {
+.flick {
     font-family: 'Lato', Helvetica, Arial;
     color: blue;
-    border-bottom: 3px grey dashed
+    background-color: darkgrey
 }
 
-.yearFilmed {
+.name {
     font-family: 'Lato', Arial, Helvetica, sans-serif;
     color: red;
-    border-bottom: 3px grey dashed
+    background-color: darkgrey
 }
 
 h1 {
     color: goldenrod
+}
+
+span {
+    display: block
 }

@@ -1,4 +1,3 @@
-
 class App {
     constructor() {
         const form = document.querySelector('form')
@@ -6,7 +5,7 @@ class App {
             ev.preventDefault()
             this.handleSubmit(ev)
         })
-        }
+    }
 
         
         handleSubmit(ev) {
@@ -29,6 +28,7 @@ class App {
             
             properties.forEach((propertyName) => {
                 const span = this.renderProperty(propertyName, flick[propertyName])
+                console.log(flick[propertyName])
                 item.appendChild(span)
             })
             return item
@@ -37,6 +37,7 @@ class App {
             const span = document.createElement('span')
             span.classList.add(name)
             span.textContent = value
+            
             return span
         }
         
