@@ -1,5 +1,23 @@
 # Chrismess
 
+
+## Day 3 Homework
+* In addition to building a list item and adding it to the DOM also store each spell in an array.
+
+
+## Bonus Credit
+* Add a delete button to each list item that removes it from the list
+
+### Super Mega Bonus Credit
+* Remove the flick from the array as well
+
+### Super Mega Bonus Credit Hyper Fighting
+* Add a favorite button too that lets you mark your favorites
+* Display favorites differently
+* Be sure the favorites are recorded appropriately in the array
+
+
+
 ## Day 2 Homework
 
 * Add a second field to the form

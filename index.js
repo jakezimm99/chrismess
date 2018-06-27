@@ -1,38 +1,44 @@
-const button = document.querySelector('#change')
-const changeText = function() {
-    const heading = document.querySelector('#exciting')
-    heading.textContent = "Bunch of Chrismesses"
-}
-button.addEventListener('click', changeText)
 
-const form = document.querySelector('form')
+class App {
+    constructor() {
+        const form = document.querySelector('form')
+        form.addEventListener('submit', (ev) => {
+            ev.preventDefault()
+            this.handleSubmit(ev)
+        })
+        }
 
-const addtoList = function(ev) {
-    ev.preventDefault()
-    const f = ev.target
-    const flick = f.flickName.value
-    const year = f.year.value
-    const list = document.querySelector('#flicks')
-    const item = createSpanItem(flick, year)
-    addListItem(list, item)
-    f.reset()
-}
-function createListItem(firstSpan, secondSpan) {
-    let item = document.createElement('li')
-    item.innerHTML = firstSpan + ' ' + secondSpan
-    return item
-}
-
-function createSpanItem(oneFlick, theYear) {
-        let flickSpan = "<span class = \"Flicky\">" + oneFlick + "</span>"
-        let yearSpan = "<span class = \"yearFilmed\">" + theYear + "</span>"
-        return createListItem(flickSpan, yearSpan)
         
-}
-
-function addListItem(list, item) {
-    list.appendChild(item)
-}
-
-
-form.addEventListener('submit', addtoList)
+        handleSubmit(ev) {
+            const f = ev.target
+            const flickObject = {
+                flick: f.flickName.value,
+                name: f.Chris.value
+            }
+            const list = document.querySelector('#flicks')
+            const item = this.renderItem(flickObject)
+            list.appendChild(item)
+            f.reset()
+            f.flickName.focus()
+        }
+        renderItem(flick) {
+            let item = document.createElement('li')
+            item.classList.add('flick')
+            
+            const properties = Object.keys(flick)
+            
+            properties.forEach((propertyName) => {
+                const span = this.renderProperty(propertyName, flick[propertyName])
+                item.appendChild(span)
+            })
+            return item
+        }
+        renderProperty(name, value) {
+            const span = document.createElement('span')
+            span.classList.add(name)
+            span.textContent = value
+            return span
+        }
+        
+    } 
+const application = new App()
