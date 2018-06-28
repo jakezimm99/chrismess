@@ -6,19 +6,20 @@ body {
 }
 .flick {
     font-family: 'Lato', Helvetica, Arial;
-    color: blue;
-    background-color: darkgray;
+    color: lightcoral;
+    
 }
 
 .name {
     font-family: 'Lato', Arial, Helvetica, sans-serif;
-    color: red;
-    background-color: darkgray;
-    border-bottom: 1px darkred solid;
+    color: lightcoral;
+    border-bottom: 1px lightcoral solid;
 }
 
 h1 {
-    color: goldenrod
+    color: lightcoral;
+    outline-color: blue;
+    outline-width: 1px
 }
 
 span {
@@ -29,4 +30,14 @@ html{
 }
 .fav {
     background-color: goldenrod;
+}
+.flick:nth-of-type(odd) {
+    background-color: rgb(81, 85, 99);
+}
+
+button:hover{
+    background-color: lightcoral;
+    scale: 1.1;
+    outline-style: rgb(0, 60, 255) groove;
+    
 }
