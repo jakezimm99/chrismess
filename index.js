@@ -1,6 +1,7 @@
 class App {
     constructor() {
         const form = document.querySelector('form')
+        this.list = document.querySelector('#flicks')
         form.addEventListener('submit', (ev) => {
             ev.preventDefault()
             this.handleSubmit(ev)
@@ -16,11 +17,9 @@ class App {
                 flick: f.flickName.value,
                 name: f.Chris.value
             }
-            const list = document.querySelector('#flicks')
+            this.allFlicks.push(flickObject)
             const item = this.renderItem(flickObject)
-            list.appendChild(item)
-            this.allFlicks.push(item)
-            console.log(this.allFlicks)
+            this.list.appendChild(item)
             f.reset()
             f.flickName.focus()
         }
@@ -36,25 +35,17 @@ class App {
                 item.appendChild(span)
             })
             const deleter = this.addDeleteButton()
-            item.appendChild(deleter)
             deleter.id = item.id
-            deleter.addEventListener('click', (ev) => {
-                ev.preventDefault()
-                const unordered = document.getElementById('flicks')
-                const nested = document.getElementById(`${item.id}`)
-                unordered.removeChild(nested)
-                for(let i=0;i < this.allFlicks.length; i++) {
-                        if(this.allFlicks[i] == item) {
-                            this.allFlicks.splice(i, 1)
-                        }
-                }
-                console.log(this.allFlicks)
-                
-            })
+            deleter.addEventListener('click', (_ev) =>  this.removeFlick(item))
+            item.appendChild(deleter)
             const favorite = this.addFavoriteButton()
             item.appendChild(favorite)
             
             return item
+        }
+
+        removeFlick(item) {
+            this.list.removeChild(item)
         }
         renderProperty(name, value) {
             const span = document.createElement('span')
@@ -74,6 +65,7 @@ class App {
             const fav = document.createElement('input')
             fav.setAttribute('type', 'checkbox')
             return fav
+
         }
         
     } 
