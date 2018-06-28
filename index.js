@@ -51,6 +51,9 @@ class App {
                 console.log(this.allFlicks)
                 
             })
+            const favorite = this.addFavoriteButton()
+            item.appendChild(favorite)
+            
             return item
         }
         renderProperty(name, value) {
@@ -65,6 +68,12 @@ class App {
             const remove = document.createElement('button')
             remove.textContent = 'Delete Entry'
             return remove
+        }
+
+        addFavoriteButton() {
+            const fav = document.createElement('input')
+            fav.setAttribute('type', 'checkbox')
+            return fav
         }
         
     } 
