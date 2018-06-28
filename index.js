@@ -14,7 +14,8 @@ class App {
             const f = ev.target
             const flickObject = {
                 flick: f.flickName.value,
-                name: f.Chris.value
+                name: f.Chris.value,
+                favorite: false,
             }
             this.allFlicks.push(flickObject)
             const item = this.renderItem(flickObject)
@@ -31,10 +32,16 @@ class App {
                 const span = this.renderProperty(propertyName, flick[propertyName])
                 item.appendChild(span)
             })
+
             const deleter = this.addDeleteButton()
             deleter.addEventListener('click', (_ev) =>  this.removeFlick(flick, item))
             item.appendChild(deleter)
-            const favorite = this.addFavoriteButton()
+
+            const favorite = document.createElement('button')
+            favorite.textContent = 'favorite'
+            favorite.addEventListener('click', (ev) => this.toggleFavorite(flick))
+
+
             item.appendChild(favorite)
             
             return item
@@ -45,8 +52,6 @@ class App {
 
             const i = this.allFlicks.indexOf(flick)
             this.allFlicks.splice(i, 1)
-
-
         }
         renderProperty(name, value) {
             const span = document.createElement('span')
@@ -62,11 +67,8 @@ class App {
             return remove
         }
 
-        addFavoriteButton() {
-            const fav = document.createElement('input')
-            fav.setAttribute('type', 'checkbox')
-            return fav
-
+        toggleFavorite(flick) {
+                flick.favorite = !flick.favorite
         }
         
     } 
