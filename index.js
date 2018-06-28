@@ -25,6 +25,7 @@ class App {
         }
         renderItem(flick) {
             const item = document.createElement('li')
+            item.classList.add('flick')
             
             const properties = Object.keys(flick)
             
@@ -39,7 +40,7 @@ class App {
 
             const favorite = document.createElement('button')
             favorite.textContent = 'favorite'
-            favorite.addEventListener('click', (ev) => this.toggleFavorite(flick))
+            favorite.addEventListener('click', (_ev) => this.toggleFavorite(flick, item))
 
 
             item.appendChild(favorite)
@@ -54,6 +55,9 @@ class App {
             this.allFlicks.splice(i, 1)
         }
         renderProperty(name, value) {
+            if(name === 'favorite') {
+                return document.createElement('span')
+            }
             const span = document.createElement('span')
             span.classList.add(name)
             span.textContent = value
@@ -67,8 +71,8 @@ class App {
             return remove
         }
 
-        toggleFavorite(flick) {
-                flick.favorite = !flick.favorite
+        toggleFavorite(flick, item) {
+                flick.favorite = item.classList.toggle('fav')
         }
         
     } 
