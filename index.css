@@ -7,13 +7,13 @@ body {
 .flick {
     font-family: 'Lato', Helvetica, Arial;
     color: blue;
-    background-color: whitesmoke;
+    background-color: darkgray;
 }
 
 .name {
     font-family: 'Lato', Arial, Helvetica, sans-serif;
     color: red;
-    background-color: whitesmoke;
+    background-color: darkgray;
     border-bottom: 1px darkred solid;
 }
 
@@ -23,4 +23,7 @@ h1 {
 
 span {
     display: block
+}
+html{
+    background: gray;
 }

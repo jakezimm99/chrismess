@@ -6,6 +6,7 @@ class App {
             this.handleSubmit(ev)
         })
         this.allFlicks  = []
+        this.counter = 0
     }
 
         
@@ -18,14 +19,15 @@ class App {
             const list = document.querySelector('#flicks')
             const item = this.renderItem(flickObject)
             list.appendChild(item)
-            this.allFlicks.push(item.textContent)
+            this.allFlicks.push(item)
             console.log(this.allFlicks)
             f.reset()
             f.flickName.focus()
         }
         renderItem(flick) {
-            let item = document.createElement('li')
-            item.classList.add('flick')
+            this.counter++
+            const item = document.createElement('li')
+            item.id = this.counter
             
             const properties = Object.keys(flick)
             
@@ -35,9 +37,19 @@ class App {
             })
             const deleter = this.addDeleteButton()
             item.appendChild(deleter)
-            deleter.addEventListener('click', (ev, item) => {
+            deleter.id = item.id
+            deleter.addEventListener('click', (ev) => {
                 ev.preventDefault()
-                document.removeChild(item)
+                const unordered = document.getElementById('flicks')
+                const nested = document.getElementById(`${item.id}`)
+                unordered.removeChild(nested)
+                for(let i=0;i < this.allFlicks.length; i++) {
+                        if(this.allFlicks[i] == item) {
+                            this.allFlicks.splice(i, 1)
+                        }
+                }
+                console.log(this.allFlicks)
+                
             })
             return item
         }
@@ -52,7 +64,6 @@ class App {
         addDeleteButton() {
             const remove = document.createElement('button')
             remove.textContent = 'Delete Entry'
-            remove.classList.add('delete')
             return remove
         }
         
