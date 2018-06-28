@@ -7,7 +7,6 @@ class App {
             this.handleSubmit(ev)
         })
         this.allFlicks  = []
-        this.counter = 0
     }
 
         
@@ -24,9 +23,7 @@ class App {
             f.flickName.focus()
         }
         renderItem(flick) {
-            this.counter++
             const item = document.createElement('li')
-            item.id = this.counter
             
             const properties = Object.keys(flick)
             
@@ -35,8 +32,7 @@ class App {
                 item.appendChild(span)
             })
             const deleter = this.addDeleteButton()
-            deleter.id = item.id
-            deleter.addEventListener('click', (_ev) =>  this.removeFlick(item))
+            deleter.addEventListener('click', (_ev) =>  this.removeFlick(flick, item))
             item.appendChild(deleter)
             const favorite = this.addFavoriteButton()
             item.appendChild(favorite)
@@ -44,8 +40,13 @@ class App {
             return item
         }
 
-        removeFlick(item) {
+        removeFlick(flick, item) {
             this.list.removeChild(item)
+
+            const i = this.allFlicks.indexOf(flick)
+            this.allFlicks.splice(i, 1)
+
+
         }
         renderProperty(name, value) {
             const span = document.createElement('span')
